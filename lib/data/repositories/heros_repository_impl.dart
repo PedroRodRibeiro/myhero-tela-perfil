@@ -1,5 +1,3 @@
-import 'package:dio/dio.dart';
-import 'package:heros/core/services/secure_storage.dart';
 import 'package:heros/data/models/hero_model.dart';
 import 'package:heros/domain/repositories/heros_repository.dart';
 import 'package:heros/core/network/http_client.dart';
