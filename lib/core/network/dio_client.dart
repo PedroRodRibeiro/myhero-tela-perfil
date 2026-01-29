@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:heros/core/network/auth_interceptor.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:heros/core/constants/api_constants.dart';
 
 class DioClient {
   late final Dio dio;
 
-  DioClient() {
+  DioClient({required AuthInterceptor authInterceptor}) {
     dio = Dio(
       BaseOptions(
         receiveTimeout: const Duration(seconds: 60),
@@ -14,7 +15,8 @@ class DioClient {
       ),
     );
 
-    dio.interceptors.add(
+    dio.interceptors.addAll([
+      authInterceptor,
       PrettyDioLogger(
         requestHeader: true,
         requestBody: true,
@@ -24,6 +26,6 @@ class DioClient {
         compact: true,
         maxWidth: 120,
       ),
-    );
+    ]);
   }
 }
