@@ -1,38 +1,114 @@
-# Flutter Classroom Project 🚀
+# MyHero — Tela de Perfil
 
-This project was developed for educational purposes to help students learn the basic principles of Flutter.  
-During the lessons, we will cover:
+Projeto desenvolvido como atividade da disciplina de **Desenvolvimento Mobile II**, do curso de **Análise e Desenvolvimento de Sistemas — 4º período**, no **IPOG**.
 
-- 📱 Flutter UI basics
-- 🎯 Good development practices
-- 🌐 API integration using HTTP requests
-- 🧪 Basic state management
+A atividade consiste na implementação de uma nova tela em um projeto Flutter existente, mantendo a identidade visual e os padrões já utilizados pela aplicação.
 
-## 📚 What you'll learn
+## 📱 Funcionalidade implementada
 
-- Widget structure and layout
-- Stateless vs Stateful widgets
-- Navigation between screens
-- How to make API calls
-- Organizing project structure
+Foi desenvolvida uma nova **Tela de Perfil**, integrada à aplicação MyHero.
 
-## 🛠️ Technologies
+A tela apresenta:
 
-- [Flutter](https://flutter.dev/)
-- Dart
-- RESTful APIs
+* Identificação do usuário;
+* Status do perfil;
+* Acesso aos Dados Pessoais;
+* Heróis Favoritos;
+* Notificações;
+* Configurações;
+* Botão para retornar à tela anterior.
 
-## 🏁 Getting Started
+A implementação preserva o padrão visual existente no projeto, utilizando componentes do Material Design, cores, tipografia, espaçamentos e elementos compatíveis com as demais telas.
+
+## 🔄 Navegação
+
+A Tela de Perfil pode ser acessada diretamente pela **Home** da aplicação.
+
+O fluxo implementado é:
+
+```text
+Home / Lista de Heróis
+        ↓
+   Ícone de Perfil
+        ↓
+    Meu Perfil
+        ↓
+      Voltar
+        ↓
+Home / Lista de Heróis
+```
+
+A navegação utiliza o sistema de rotas nomeadas já existente no projeto Flutter.
+
+## 🛠 Tecnologias utilizadas
+
+* Flutter
+* Dart
+* Material Design / Material 3
+* MobX
+* Provider
+* Android SDK
+* Git e GitHub
+
+## 📂 Principais arquivos alterados
+
+```text
+lib/
+├── main.dart
+└── ui/
+    ├── home/
+    │   └── list_hero.dart
+    └── user_profile/
+        └── user_profile.dart
+```
+
+O arquivo `user_profile.dart` contém a nova interface, enquanto `main.dart` registra a nova rota e `list_hero.dart` disponibiliza o acesso à tela pela Home.
+
+## ▶️ Como executar
+
+Clone o repositório:
 
 ```bash
-# Clone the repository
-git clone https://github.com/Magnothiago/myhero.git
+git clone https://github.com/PedroRodRibeiro/myhero-tela-perfil.git
+```
 
-# Navigate to the project folder
-cd myhero
+Acesse a pasta:
 
-# Get dependencies
+```bash
+cd myhero-tela-perfil
+```
+
+Instale as dependências:
+
+```bash
 flutter pub get
+```
 
-# Run the app
+Com um dispositivo Android ou emulador disponível, execute:
+
+```bash
 flutter run
+```
+
+## ✅ Validação
+
+O projeto foi validado com:
+
+```bash
+flutter analyze
+```
+
+Resultado:
+
+```text
+No issues found!
+```
+
+A funcionalidade também foi executada e validada em emulador Android.
+
+## 👨‍💻 Autor
+
+**Pedro Henrique Rodovalho Ribeiro**
+
+Análise e Desenvolvimento de Sistemas — 4º período
+IPOG — Instituto de Pós-Graduação e Graduação
