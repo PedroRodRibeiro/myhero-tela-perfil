@@ -11,6 +11,7 @@ import 'package:heros/domain/repositories/heros_repository.dart';
 import 'package:heros/ui/home/hero_profile.dart';
 import 'package:heros/ui/home/hero_viewmodel.dart';
 import 'package:heros/ui/home/list_hero.dart';
+import 'package:heros/ui/user_profile/user_profile.dart';
 import 'package:provider/provider.dart';
 
 import 'core/services/secure_storage.dart';
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
             ListHero(heroViewModel: context.read<HeroViewModel>()),
         '/profile': (context) =>
             HeroProfile(heroViewModel: context.read<HeroViewModel>()),
+        '/user-profile': (context) => const UserProfile(),
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

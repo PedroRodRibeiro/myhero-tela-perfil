@@ -29,7 +29,10 @@ class _ListHeroState extends State<ListHero> {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                      context, '/', (route) => false),
+                    context,
+                    '/',
+                    (route) => false,
+                  ),
                   child: Text('OK'),
                 ),
               ],
@@ -65,48 +68,68 @@ class _ListHeroState extends State<ListHero> {
             )
           ],
         ),
+
+        // Acesso à nova Tela de Perfil
+        actions: [
+          IconButton(
+            tooltip: 'Meu Perfil',
+            icon: const Icon(
+              Icons.person,
+              color: Color(0xFFFF0052),
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/user-profile');
+            },
+          ),
+          const SizedBox(
+            width: 8,
+          ),
+        ],
       ),
       body: ListView.builder(
-          itemCount: nomes.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        nomes[index],
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+        itemCount: nomes.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      nomes[index],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Spacer(),
-                      SizedBox(
+                    ),
+                    Spacer(),
+                    SizedBox(
+                      height: 40,
+                      width: 40,
+                      child: Image.asset('assets/icons/info.png'),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        widget.heroViewModel.setIdHero('$index');
+                        Navigator.pushNamed(context, '/profile');
+                      },
+                      child: SizedBox(
                         height: 40,
                         width: 40,
-                        child: Image.asset('assets/icons/info.png'),
+                        child: Image.asset('assets/icons/call.png'),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          widget.heroViewModel.setIdHero('$index');
-                          Navigator.pushNamed(context, '/profile');
-                        },
-                        child: SizedBox(
-                          height: 40,
-                          width: 40,
-                          child: Image.asset('assets/icons/call.png'),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Divider()
-                ],
-              ),
-            );
-          }),
+                    ),
+                  ],
+                ),
+                Divider()
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
